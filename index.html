@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="frame" >
+        <h1>Tip Calculator</h1>
+        <br>
+        <div class="pricebox">
+            <h4>Price</h4>
+            <input type="text" placeholder="Price" id="price">
+        </div>
+        <div class="percentbox">
+            <h4>Percentage</h4>
+            <input type="text" placeholder="%" id="percent">
+        </div>
+        <br>
+        <input type="button" value="Calculate" id="calculatep">
+        <br>
+        <div class="frame2" id="frame2">
+            <h4>Tip</h4>
+            <input type="text" id="tip">
+        </div>
+        <div class="f-amount" id="f-amount">
+            <h4>Total price</h4>
+            <input type="text" id="total">
+        </div>
+        <input type="button" value="Done" id="donebtn">
+        
+    </div>
+
+    <script>
+        let price = document.getElementById('price')
+        let percent = document.getElementById('percent')
+        let cal_button = document.getElementById('calculatep')
+        let result = document.getElementById('tip')
+        let total = document.getElementById('total')
+        let done = document.getElementById('donebtn')
+        let f2 = document.getElementById('frame2')
+        let final_a = document.getElementById('f-amount') 
+
+        cal_button.addEventListener('click',()=>{
+            pr = parseFloat(price.value) 
+            per = percent.value
+            r = eval(pr * per/100)
+            f2.style.display = 'flex'
+            result.value = 'R' + r
+            tip = eval(pr + r)
+            final_a.style.display = 'flex'
+            total.value = 'R' + tip
+            done.style.display = 'flex'
+            console.log(r)
+            
+        })
+
+        done.addEventListener('click',()=>{
+            f2.style.display = 'none'
+            done.style.display = 'none'
+            final_a.style.display = 'none'
+            price.value = ''
+            percent.value = ''
+        })
+    </script>
+</body>
+</html>
