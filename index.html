@@ -46,7 +46,7 @@
         cal_button.addEventListener('click',()=>{
             pr = parseFloat(price.value) 
             per = percent.value
-            r = eval(pr * per/100)
+            r = eval(pr * per/100).toFixed(2)
             f2.style.display = 'flex'
             result.value = 'R' + r
             tip = eval(pr + r)
